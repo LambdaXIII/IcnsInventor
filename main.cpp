@@ -1,7 +1,10 @@
 #include <QCoreApplication>
 #include <QCommandLineParser>
+#include <QTextStream>
 
-#define TRANSLATE(T) QCoreApplication::translate("main",T)
+#include "functions.h"
+
+
 
 int main(int argc, char *argv[])
 {
@@ -25,6 +28,8 @@ int main(int argc, char *argv[])
   const QString source_src = args[0];
   const QString dest_src = args[1];
 
-//  return a.exec();
+  QImage image = readImage(source_src);
+  image.save(dest_src);
+
   return 0;
 }
